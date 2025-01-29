@@ -7,9 +7,9 @@
     <title><%= title %></title>
     <% if (inDevMode) { %>
         <script>
-            const ws = new WebSocket(`ws://localhost:${parseInt(<%= port %>) + 1}`);
+         const ws = new WebSocket('ws://localhost:<%= port %>');
             ws.onclose = () => {
-                setTimeout(() => location.reload(), 2000);
+                console.log('WebSocket connection closed.');
             };
         </script>
     <% } %>

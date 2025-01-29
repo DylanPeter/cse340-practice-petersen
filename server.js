@@ -19,10 +19,9 @@ app.set('view engine', 'ejs');
 // Register the 'public' directory to serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Global middleware for mode
+// Global middleware for dev vs prod
 app.use((req, res, next) => {
     res.locals.inDevMode = true;
-    res.locals.port = port;
     next();
 });
 
